@@ -8,37 +8,42 @@ import { motion } from "framer-motion";
 const Navbar = () => {
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [currentIndexSub, setCurrentIndexSub] = useState(0);
-  const windowBreakNav = window.innerWidth <= 820;
+  const [windowBreakNav, setWindowBreakNav] = useState(window.innerWidth <= 820);
+
   const handleMenuItemHover = (index) => {
     setCurrentIndex(index);
-    console.log(index);
   };
 
   useEffect(() => {
-    if(!windowBreakNav){
-      const handleScroll = () => {
-        setCurrentIndex(-1);
-      };
-  
-      window.addEventListener("scroll", handleScroll);
-  
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-      };
-    }
+    const handleScroll = () => {
+      setCurrentIndex(-1);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    const handleResize = () => {
+      setWindowBreakNav(window.innerWidth <= 820);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (
     <>
-      {!windowBreakNav && (
+      {windowBreakNav === false ? (
         <nav
           className={`${styles.navbar} ${
             currentIndex !== -1 ? styles.active : ""
-          }  pt-3 z-10`}
+          }  pt-3 z-10 max-[375px]:hidden`}
         >
-          <div className="md_content md:gap-2.5">
+          <div className={styles.nav_wrap + " md_content md:gap-2.5"}>
             <div
-              className="md:flex md:justify-between mb-2.5 md:items-center"
+              className="lg:flex lg:justify-between mb-2.5 lg:items-center"
               onMouseEnter={() => handleMenuItemHover(-1)}
             >
               <div className={styles.img_block}>
@@ -57,7 +62,7 @@ const Navbar = () => {
               <ul
                 className={
                   styles.menu +
-                  " md:grid md:grid-flow-col md:justify-stretch text-white md:gap-x-6 md:text-lg md:font-bold"
+                  " lg:grid lg:grid-flow-col lg:justify-stretch text-white lg:gap-x-6 lg:text-lg lg:font-bold"
                 }
               >
                 {menuData.map((item, index) => {
@@ -130,16 +135,15 @@ const Navbar = () => {
             )}
           </div>
         </nav>
-      )}
-      {windowBreakNav && (
+      ) : (
         <nav
-          className={`${styles.navbar} ${
+          className={`${styles.navbar}  ${
             currentIndex !== -1 ? styles.active : ""
-          }  pt-3 z-10 w-full h-full pb-4`}
+          }  pt-3 z-10 w-full h-full pb-4 max-[374px]:block`}
         >
-          <div className="md_content md:gap-2.5">
+          <div className={styles.mobile_nav_wrap + " md_content sml:gap-2.5"}>
             <div
-              className="sml:flex sml:justify-between sml-2.5 sml:items-center"
+              className="sml:flex sml:justify-between sml:gap-2.5 sml:items-center"
               onMouseEnter={() => handleMenuItemHover(-1)}
             >
               <div className={styles.img_block}>
@@ -152,7 +156,7 @@ const Navbar = () => {
                   </button>
                 ) : (
                   <button onClick={() => setCurrentIndex(-1)}>
-                    <img src={closeIcon} alt=""/>
+                    <img src={closeIcon} alt="" />
                   </button>
                 )}
               </div>
@@ -169,10 +173,8 @@ const Navbar = () => {
                 <div className={styles.mobile_menu_wrap + " md_content flex"}>
                   <ul>
                     {menuData.map((item, index) => {
-                      const key = nanoid()
-                      return (
-                        <li key={key}>{item.title}</li>
-                      )
+                      const key = nanoid();
+                      return <li key={key}>{item.title}</li>;
                     })}
                   </ul>
                 </div>
