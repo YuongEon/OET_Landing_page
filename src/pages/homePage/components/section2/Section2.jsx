@@ -76,7 +76,7 @@ const Section2 = () => {
               <div
                 className={
                   styles.arrow_btn +
-                  " flex xl:justify-start xl:items-center lg:justify_start lg:items-center gap-2 max-[820px]:hidden"
+                  " flex xl:justify-start xl:items-center lg:justify_start lg:items-center gap-2 max-[1000px]:hidden"
                 }
               >
                 <button onClick={() => handleUpdateIndex(currentIndex - 1)}>

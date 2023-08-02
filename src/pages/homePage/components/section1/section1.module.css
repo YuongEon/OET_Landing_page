@@ -225,7 +225,7 @@ h3>span {
     line-height: 100px;
   }
 }
-@media screen and (max-width: 375px) {
+@media screen and (min-width: 375px) {
   .title {
     font-size: 16px;
   }
@@ -263,7 +263,7 @@ h3>span {
   }
 
   .running_text>p{
-    font-size: 20px;
+    font-size: 36px;
     line-height: 60px;
   }
 }
