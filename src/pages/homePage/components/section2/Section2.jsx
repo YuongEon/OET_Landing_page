@@ -122,7 +122,7 @@ const Section2 = () => {
               management, and market position.
             </p>
           </div>
-          <div className="grid grid-flow-col sml:grid-rows-2` justify-stretch">
+          <div className="grid grid-flow-col sml:grid-rows-2 justify-stretch">
             {companyValueData.map((item, index) => (
               <div key={index}>
                 {formatTextWithPlus(String(item.value))}
