@@ -192,6 +192,13 @@
   -webkit-text-stroke: 0px;
 }
 
+@media screen and (min-width: 1025px) and (max-width: 1365px){
+  .section{
+    padding-block: 60px 20px;
+    background-size: 100vw 100%;
+  }
+}
+
 @media screen and (max-width: 1024px) and (min-width: 769px) {
   .running_text > p {
     font-size: 50px;
@@ -230,12 +237,6 @@
 }
 
 @media screen and (min-width: 376px) and (max-width: 912px){
-  .section {
-    background-repeat: no-repeat;
-    background-size: 100vw 100%;
-    padding-block: 180px 60px;
-    height: fit-content;
-  }
   .card_content{
     inset: 0;
     left: 10px;

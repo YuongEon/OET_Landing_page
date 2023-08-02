@@ -35,8 +35,7 @@ const Section3 = () => {
     <section
       className={styles.section}
       style={{
-        backgroundImage: `url(${bg1})`,
-        minHeight: "100vh",
+        backgroundImage: `url(${bg1})`
       }}
     >
       <div className="md_content">

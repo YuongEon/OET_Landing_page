@@ -48,7 +48,7 @@ const Section2 = () => {
     >
       <section className={styles.section}>
         <div className="md_content flex flex-col md:gap-y-10 ">
-          <div className="flex xl:flex-row lg:flex-row md:flex-col ">
+          <div className="flex xl:flex-row lg:flex-row min-[330px]:flex-col ">
             <motion.div
               initial={{ opacity: 0, translateX: "-100px" }}
               whileInView={{ opacity: 1, translateX: "0px" }}
@@ -76,7 +76,7 @@ const Section2 = () => {
               <div
                 className={
                   styles.arrow_btn +
-                  " flex xl:justify-start xl:items-center lg:justify_start lg:items-center gap-2 max-[1000px]:hidden"
+                  " flex xl:justify-start xl:items-center lg:justify_start lg:items-center gap-2 max-[1023px]:hidden"
                 }
               >
                 <button onClick={() => handleUpdateIndex(currentIndex - 1)}>
@@ -108,9 +108,9 @@ const Section2 = () => {
                   }`}
                 >
                   {currentIndex === index ? (
-                    <img src={item.imgActive} alt="" className="lg:w-[120px]"/>
+                    <img src={item.imgActive} alt="" className={styles.imgActive}/>
                   ) : (
-                    <img src={item.imgNotActive} className="lg:w-[70px]" alt="" />
+                    <img src={item.imgNotActive} alt="" className={styles.imgNotActive}/>
                   )}
                 </motion.button>
               ))}
