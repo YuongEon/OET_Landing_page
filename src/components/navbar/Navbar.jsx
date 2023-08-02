@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 const Navbar = () => {
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [currentIndexSub, setCurrentIndexSub] = useState(0);
-  const [windowBreakNav, setWindowBreakNav] = useState(window.innerWidth <= 820);
+  const [windowBreakNav, setWindowBreakNav] = useState(window.innerWidth <= 1000);
 
   const handleMenuItemHover = (index) => {
     setCurrentIndex(index);
@@ -22,7 +22,7 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
 
     const handleResize = () => {
-      setWindowBreakNav(window.innerWidth <= 820);
+      setWindowBreakNav(window.innerWidth <= 1000);
     };
 
     window.addEventListener("resize", handleResize);

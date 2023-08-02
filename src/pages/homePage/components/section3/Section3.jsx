@@ -65,7 +65,7 @@ const Section3 = () => {
                 whileHover={{ scale: 1.2, zIndex: 10 }}
                 className="relative"
               >
-                <img src={serviceImg1} alt="" />
+                <img src={serviceImg1} alt=""/>
                 <p className={styles.card_content}>
                   Project Management and Engineering Services
                 </p>

@@ -229,3 +229,18 @@
   }
 }
 
+@media screen and (min-width: 376px) and (max-width: 912px){
+  .section {
+    background-repeat: no-repeat;
+    background-size: 100vw 100%;
+    padding-block: 180px 60px;
+    height: fit-content;
+  }
+  .card_content{
+    inset: 0;
+    left: 10px;
+    bottom: 10px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+}

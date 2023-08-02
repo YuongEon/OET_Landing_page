@@ -54,13 +54,25 @@ body{
     margin: 0 auto;
   }
 }
-@media screen and (min-width: 769px) and (max-width: 1240px){
+@media screen and (min-width: 913px) and (max-width: 1240px){
   .md_content{
     width: 57rem;
     margin: 0 auto;
   }
 }
+@media screen and (min-width: 821px) and (max-width: 912px){
+  .md_content{
+    width: 50rem;
+    margin: 0 auto;
+  }
+}
 @media screen and (min-width: 769px) and (max-width: 820px){
+  .md_content{
+    width: 46rem;
+    margin: 0 auto;
+  }
+}
+@media screen and (min-width: 376px) and (max-width: 768px){
   .md_content{
     width: 46rem;
     margin: 0 auto;
