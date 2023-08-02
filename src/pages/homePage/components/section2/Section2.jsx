@@ -76,7 +76,7 @@ const Section2 = () => {
               <div
                 className={
                   styles.arrow_btn +
-                  " flex xl:justify-start xl:items-center lg:justify_start lg:items-center gap-2 md:hidden"
+                  " flex xl:justify-start xl:items-center lg:justify_start lg:items-center gap-2 max-[820px]:hidden"
                 }
               >
                 <button onClick={() => handleUpdateIndex(currentIndex - 1)}>
@@ -122,7 +122,7 @@ const Section2 = () => {
               management, and market position.
             </p>
           </div>
-          <div className="grid grid-flow-col justify-stretch">
+          <div className="grid grid-flow-col sml:grid-rows-2` justify-stretch">
             {companyValueData.map((item, index) => (
               <div key={index}>
                 {formatTextWithPlus(String(item.value))}

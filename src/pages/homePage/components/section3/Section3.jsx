@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./section3.module.css";
 import {
   bg1,
@@ -17,8 +17,20 @@ import { serviceData } from "./data";
 import { nanoid } from "nanoid";
 
 const Section3 = () => {
-  const isBreakPointChangeEl = window.innerWidth <= 820;
+  const [windowBreakNav, setWindowBreakNav] = useState(
+    window.innerWidth <= 820
+  );
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowBreakNav(window.innerWidth <= 820);
+    };
 
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
     <section
       className={styles.section}
@@ -28,7 +40,7 @@ const Section3 = () => {
       }}
     >
       <div className="md_content">
-        {!isBreakPointChangeEl && (
+        {windowBreakNav === false ? (
           <div
             className="flex md:flex-col md:gap-2"
             style={{ flexDirection: "column" }}
@@ -224,8 +236,7 @@ const Section3 = () => {
               </div>
             </div>
           </div>
-        )}
-        {isBreakPointChangeEl && (
+        ) : (
           <div>
             <motion.div
               initial={{ opacity: 0, translateX: "-100px" }}
@@ -245,8 +256,6 @@ const Section3 = () => {
               }}
               spaceBetween={50}
               slidesPerView={4}
-
-
             >
               {serviceData.map((item, index) => {
                 const key = nanoid();
